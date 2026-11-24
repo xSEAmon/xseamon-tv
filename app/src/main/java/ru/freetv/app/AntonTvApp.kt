@@ -36,6 +36,10 @@ class AntonTvApp : Application() {
     /**
      * Если на конкретном боксе/прошивке что-то падает, стектрейс остаётся
      * в files/last_crash.txt — его можно забрать через adb pull.
+     *
+     * Дополнительно: если падает именно Leanback-интерфейс (BrowseSupportFragment),
+     * переключаем приложение в режим сетки, чтобы при следующем запуске оно
+     * не падало по кругу. Пользователь может вернуть ТВ-интерфейс в настройках.
      */
     private fun installCrashLogger() {
         val previous = Thread.getDefaultUncaughtExceptionHandler()
@@ -46,6 +50,11 @@ class AntonTvApp : Application() {
                 java.io.File(filesDir, "last_crash.txt").writeText(text)
                 getExternalFilesDir(null)?.let { dir ->
                     java.io.File(dir, "last_crash.txt").writeText(text)
+                }
+                if (text.contains("androidx.leanback")) {
+                    getSharedPreferences("freetv", MODE_PRIVATE).edit()
+                        .putString("ui_mode", "phone")
+                        .commit()
                 }
             }
             previous?.uncaughtException(thread, throwable)

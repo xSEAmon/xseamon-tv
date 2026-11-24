@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resolveMode(): UiMode = when (prefs.uiMode) {
-        "tv" -> UiMode.TV
+        "tv" -> if (hasLeanback()) UiMode.TV else UiMode.PHONE
         "phone" -> UiMode.PHONE
         else -> {
             val touch = packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)
@@ -163,6 +163,9 @@ class MainActivity : AppCompatActivity() {
             if (touch && !leanback) UiMode.PHONE else UiMode.TV
         }
     }
+
+    private fun hasLeanback(): Boolean =
+        packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
 
     private fun setupTv() {
         val fragment = BrowseSupportFragment()
