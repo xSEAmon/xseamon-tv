@@ -12,7 +12,8 @@
 set -euo pipefail
 
 REPO="xSEAmon/xseamon-tv"
-APK="${APK:-app/build/outputs/apk/release/AntonTV-3.0.5.apk}"
+# Берём самый свежий собранный APK, если путь не задан явно через $APK.
+APK="${APK:-$(ls -t app/build/outputs/apk/release/AntonTV-*.apk 2>/dev/null | head -1)}"
 
 TAG="${1:-}"
 NOTES="${2:-Новая версия}"
