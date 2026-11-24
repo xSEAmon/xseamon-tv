@@ -1,0 +1,18 @@
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# Секреты: ключ подписи НЕ должен попадать в публичный репозиторий
+*.jks
+*.keystore
+*.p12
+*.key
+*.pem

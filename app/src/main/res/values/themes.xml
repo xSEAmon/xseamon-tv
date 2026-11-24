@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.FreeTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_dim</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+    </style>
+
+    <style name="Theme.FreeTV.Player" parent="Theme.FreeTV">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Theme.FreeTV.Dialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text_dim</item>
+        <item name="android:backgroundDimAmount">0.72</item>
+    </style>
+
+    <style name="SkeletonCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/card_thumb_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@drawable/skeleton_card</item>
+    </style>
+
+    <style name="PlayerChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@drawable/chip_bg</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

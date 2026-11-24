@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Интерфейс"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp" />
+
+        <RadioGroup
+            android:id="@+id/settings_ui_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/settings_ui_auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accent"
+                android:text="Авто (по устройству)"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/settings_ui_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accent"
+                android:text="Телевизор (пульт, крупные карточки)"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/settings_ui_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/accent"
+                android:text="Телефон (сенсор, сетка)"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Источник каналов"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp" />
+
+        <RadioGroup
+            android:id="@+id/settings_source_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/settings_source_m3u"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/accent"
+                android:text="M3U"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/settings_source_xtream"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/accent"
+                android:text="Xtream live"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/settings_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="M3U: https://..."
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/text"
+            android:textColorHint="#55657A"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/settings_xtream_host"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="Xtream: host или http://host:port"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/text"
+            android:textColorHint="#55657A"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/settings_xtream_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Логин"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text"
+                android:textColorHint="#55657A"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/settings_xtream_pass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="Пароль"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text"
+                android:textColorHint="#55657A"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_epg_sources"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="Источники EPG (XMLTV)…"
+            android:textColor="@color/accent"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/settings_hd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:buttonTint="@color/accent"
+            android:text="Только HD (720p и выше)"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/settings_dead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/accent"
+            android:text="Скрывать недоступные каналы"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/settings_unstable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/accent"
+            android:text="Скрывать геоблокированные и нестабильные"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/settings_noaudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/accent"
+            android:text="Скрывать каналы без звука (MP2)"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/settings_change_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="6dp"
+            android:text="Сменить устройство (Телевизор / Телефон)…"
+            android:textColor="@color/accent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Обновление"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/settings_update_repo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="GitHub-репозиторий: owner/repo"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/text"
+            android:textColorHint="#55657A"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/settings_check_updates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="6dp"
+            android:text="Проверить обновления…"
+            android:textColor="@color/accent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/settings_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:padding="6dp"
+            android:text="Сбросить настройки и очистить кэш"
+            android:textColor="@color/accent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/settings_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textColor="@color/text_dim"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_width">180dp</dimen>
+    <dimen name="card_thumb_height">100dp</dimen>
+    <dimen name="card_padding">4dp</dimen>
+    <dimen name="card_logo_padding">12dp</dimen>
+    <dimen name="card_initial_size">30sp</dimen>
+    <dimen name="card_title_size">12sp</dimen>
+    <dimen name="card_now_size">10sp</dimen>
+
+    <dimen name="top_bar_height">76dp</dimen>
+    <dimen name="screen_padding">48dp</dimen>
+    <dimen name="safe_horizontal">48dp</dimen>
+    <dimen name="safe_vertical">27dp</dimen>
+
+    <dimen name="player_horizontal_padding">56dp</dimen>
+    <dimen name="player_top_padding">48dp</dimen>
+    <dimen name="player_bottom_padding">34dp</dimen>
+    <dimen name="player_number_size">30sp</dimen>
+    <dimen name="player_name_size">26sp</dimen>
+</resources>

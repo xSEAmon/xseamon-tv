@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/top_bar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Антон ТВ"
+            android:textColor="@color/accent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/top_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_dim"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="Обновить"
+            android:focusable="false"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="⟳"
+            android:textColor="@color/text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/btn_check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="Проверить каналы"
+            android:focusable="false"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="✓"
+            android:textColor="@color/text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="Поиск"
+            android:focusable="false"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="🔍"
+            android:textColor="@color/text"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/btn_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="Настройки"
+            android:focusable="false"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="⚙"
+            android:textColor="@color/text"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="6dp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/accent" />
+
+        <LinearLayout
+            android:id="@+id/skeleton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="6dp"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="180dp"
+                android:layout_height="16dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/skeleton_card" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View style="@style/SkeletonCard" />
+                <View style="@style/SkeletonCard" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <View style="@style/SkeletonCard" />
+                <View style="@style/SkeletonCard" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <View style="@style/SkeletonCard" />
+                <View style="@style/SkeletonCard" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:textColor="@color/text_dim"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/number_overlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/dialog_bg"
+            android:minWidth="120dp"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="14dp"
+            android:textColor="@color/accent"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>
