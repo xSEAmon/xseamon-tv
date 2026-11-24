@@ -13,8 +13,8 @@ android {
         applicationId = "ru.freetv.app"
         minSdk = 21
         targetSdk = 34
-        versionCode = 41
-        versionName = "3.0.11"
+        versionCode = 42
+        versionName = "3.0.12"
     }
 
     signingConfigs {
