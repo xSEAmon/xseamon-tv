@@ -55,7 +55,7 @@ object UpdateChecker {
         progress.show()
 
         activity.lifecycleScope.launch {
-            val result = runCatching { fetchLatest(activity) }
+            val result = withContext(Dispatchers.IO) { runCatching { fetchLatest(activity) } }
             progress.dismiss()
             result.onSuccess { update ->
                 if (update != null && update.versionCode > installedVersionCode(activity)) {
@@ -71,7 +71,15 @@ object UpdateChecker {
                     )
                 }
             }.onFailure { error ->
-                info(activity, "Ошибка", "Не удалось проверить обновления.\n" + (error.message ?: ""))
+                val detail = when (error) {
+                    is java.net.SocketTimeoutException,
+                    is java.net.ConnectException -> "Сервер не ответил. Проверьте интернет-соединение."
+
+                    is java.io.IOException -> "Нет соединения с интернетом."
+                    else -> error.message?.takeIf { it.isNotBlank() }
+                        ?: error.javaClass.simpleName
+                }
+                info(activity, "Ошибка", "Не удалось проверить обновления.\n$detail")
             }
         }
     }
