@@ -78,6 +78,11 @@ class Prefs(context: Context) {
             ?: DEFAULT_UPDATE_REPO
         set(value) = prefs.edit().putString(KEY_UPDATE_REPO, value.trim()).apply()
 
+    /** Показывать все категории (включая магазины, религию, прочее). */
+    var showAllCategories: Boolean
+        get() = prefs.getBoolean(KEY_SHOW_ALL_CATEGORIES, false)
+        set(value) = prefs.edit().putBoolean(KEY_SHOW_ALL_CATEGORIES, value).apply()
+
     fun favorites(): Set<String> =
         prefs.getStringSet(KEY_FAVORITES, emptySet())?.toSet() ?: emptySet()
 
@@ -162,6 +167,7 @@ class Prefs(context: Context) {
         private const val KEY_LAST_VERSION = "last_version"
         private const val KEY_VIDEO_QUALITY = "video_quality"
         private const val KEY_UPDATE_REPO = "update_repo"
+        private const val KEY_SHOW_ALL_CATEGORIES = "show_all_categories"
         private const val KEY_FAVORITES = "favorites"
         private const val KEY_ORDER = "channel_order"
         private const val DEAD_PREFIX = "dead:"

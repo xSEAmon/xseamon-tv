@@ -82,8 +82,16 @@ class FederalTest {
             byName["ТНТ"]!!.urls.first().contains("zabava")
         )
         assertTrue(
-            "Пятница должна начинаться с zabava",
-            byName["Пятница!"]!!.urls.first().contains("zabava")
+            "Пятница должна начинаться с рабочего tuva-источника",
+            byName["Пятница!"]!!.urls.first().contains("tuva.ru")
+        )
+        assertTrue(
+            "Муз-ТВ должен начинаться с zabava (без рекламы cinerama)",
+            byName["Муз-ТВ"]!!.urls.first().contains("zabava")
+        )
+        assertTrue(
+            "Муз-ТВ не должен использовать cinerama (реклама)",
+            byName["Муз-ТВ"]!!.urls.none { it.contains("cinerama") }
         )
     }
 

@@ -30,6 +30,7 @@ class SettingsDialog(
         val hideDead = view.findViewById<CheckBox>(R.id.settings_dead)
         val hideUnstable = view.findViewById<CheckBox>(R.id.settings_unstable)
         val hideNoAudio = view.findViewById<CheckBox>(R.id.settings_noaudio)
+        val allCategories = view.findViewById<CheckBox>(R.id.settings_all_categories)
         val reset = view.findViewById<TextView>(R.id.settings_reset)
         val changeDevice = view.findViewById<TextView>(R.id.settings_change_device)
         val versionView = view.findViewById<TextView>(R.id.settings_version)
@@ -59,6 +60,7 @@ class SettingsDialog(
         hideDead.isChecked = prefs.hideDead
         hideUnstable.isChecked = prefs.hideUnstable
         hideNoAudio.isChecked = prefs.hideNoAudio
+        allCategories.isChecked = prefs.showAllCategories
         xtreamHost.setText(prefs.xtreamHost)
         xtreamUser.setText(prefs.xtreamUser)
         xtreamPass.setText(prefs.xtreamPass)
@@ -92,6 +94,7 @@ class SettingsDialog(
                 prefs.hideDead = hideDead.isChecked
                 prefs.hideUnstable = hideUnstable.isChecked
                 prefs.hideNoAudio = hideNoAudio.isChecked
+                prefs.showAllCategories = allCategories.isChecked
                 prefs.uiMode = when (uiMode.checkedRadioButtonId) {
                     R.id.settings_ui_tv -> "tv"
                     R.id.settings_ui_phone -> "phone"
@@ -108,6 +111,7 @@ class SettingsDialog(
                 hideDead.isChecked = prefs.hideDead
                 hideUnstable.isChecked = prefs.hideUnstable
                 hideNoAudio.isChecked = prefs.hideNoAudio
+                allCategories.isChecked = prefs.showAllCategories
                 xtreamHost.setText("")
                 xtreamUser.setText("")
                 xtreamPass.setText("")

@@ -75,7 +75,10 @@ class ChannelRepository(context: Context) {
         File(appContext.filesDir, if (prefs.sourceType == "xtream") "xtream.m3u" else "playlist.m3u")
 
     private fun buildCatalog(text: String): Catalog = CatalogBuilder.build(
-        raw = M3uParser.parse(text),
+        raw = M3uParser.parse(text).filter { raw ->
+            val host = runCatching { java.net.URI(raw.url).host.orEmpty() }.getOrDefault("")
+            host !in BLOCKED_HOSTS
+        },
         options = CatalogBuilder.Options(
             hdOnly = prefs.hdOnly,
             hideUnstable = prefs.hideUnstable,
@@ -85,7 +88,8 @@ class ChannelRepository(context: Context) {
             favorites = prefs.favorites(),
             order = prefs.channelOrder(),
             noAudioKeys = noAudioKeys,
-            hideNoAudio = prefs.hideNoAudio
+            hideNoAudio = prefs.hideNoAudio,
+            hiddenGroups = if (prefs.showAllCategories) emptySet() else CatalogBuilder.JUNK_GROUPS
         ),
         updatedAt = System.currentTimeMillis()
     )
@@ -140,5 +144,11 @@ class ChannelRepository(context: Context) {
         const val USER_AGENT =
             "Mozilla/5.0 (Linux; Android 12; Android TV) AppleWebKit/537.36 " +
                 "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+        /** Хосты, отдающие 403/недоступные — каналы с ними скрываются. */
+        private val BLOCKED_HOSTS = setOf(
+            "stream.mcquack.net",
+            "fs.uplink.kz"
+        )
     }
 }

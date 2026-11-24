@@ -142,4 +142,34 @@ class CatalogBuilderTest {
         assertFalse(names.any { it.contains("Dead") })
         assertTrue(names.any { it.contains("Alive") })
     }
+
+    @Test
+    fun `hides junk categories by default`() {
+        val opts = options().copy(hiddenGroups = CatalogBuilder.JUNK_GROUPS)
+        val catalog = CatalogBuilder.build(
+            raw = listOf(
+                raw("Магазин на диване (576p)", "http://shop.m3u8", tvgId = "Shop.ru", group = "Shop"),
+                raw("Хороший музыкальный (576p)", "http://music.m3u8", tvgId = "Music.ru", group = "Music")
+            ),
+            options = opts,
+            updatedAt = 0L
+        )
+
+        val names = catalog.allChannels.map { it.name }
+        assertFalse("магазины должны быть скрыты", names.any { it.contains("Магазин") })
+        assertTrue(names.any { it.contains("музыкальный") })
+    }
+
+    @Test
+    fun `shows junk categories when hiddenGroups is empty`() {
+        val catalog = CatalogBuilder.build(
+            raw = listOf(
+                raw("Магазин на диване (576p)", "http://shop.m3u8", tvgId = "Shop.ru", group = "Shop")
+            ),
+            options = options(),
+            updatedAt = 0L
+        )
+
+        assertTrue(catalog.allChannels.any { it.name.contains("Магазин") })
+    }
 }

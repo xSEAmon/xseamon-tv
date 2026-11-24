@@ -194,6 +194,15 @@
             android:textColor="@color/text"
             android:textSize="15sp" />
 
+        <CheckBox
+            android:id="@+id/settings_all_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/accent"
+            android:text="Показывать все категории (магазины, религия, прочее)"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/settings_change_device"
             android:layout_width="match_parent"

@@ -182,8 +182,9 @@ object Federal {
         FederalDef(
             16, "Пятница!",
             listOf(
-                "https://zabava-htlive.cdn.ngenix.net/hls/CH_PYATNICA/variant.m3u8",
-                "https://vod.tuva.ru/friday/index.m3u8"
+                "https://vod.tuva.ru/friday/index.m3u8",
+                "http://tv.tuva.ru/friday/index.m3u8",
+                "http://31.148.5.241/kanal_16/index.m3u8"
             ),
             576, logo(16),
             listOf("Пятница!", "Пятница"),
@@ -222,8 +223,8 @@ object Federal {
         FederalDef(
             20, "Муз-ТВ",
             listOf(
-                "https://stream8.cinerama.uz/1200/tracks-v1a1/mono.m3u8",
-                "https://zabava-htlive.cdn.ngenix.net/hls/CH_MUZTV/variant.m3u8"
+                "https://zabava-htlive.cdn.ngenix.net/hls/CH_MUZTV/variant.m3u8",
+                "http://31.148.5.241/kanal_20/index.m3u8"
             ),
             576, logo(20),
             listOf("Муз-ТВ", "МУЗ ТВ"),

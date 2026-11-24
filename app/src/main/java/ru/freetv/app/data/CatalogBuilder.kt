@@ -9,6 +9,12 @@ import ru.freetv.app.util.Quality
  */
 object CatalogBuilder {
 
+    /** «Мусорные» категории, скрываемые по умолчанию (можно вернуть в настройках). */
+    val JUNK_GROUPS = setOf(
+        "Прочее", "Магазины", "Религия", "Парламент", "Бизнес",
+        "Наука", "Релакс", "Погода"
+    )
+
     data class Options(
         val hdOnly: Boolean,
         val hideUnstable: Boolean,
@@ -18,7 +24,8 @@ object CatalogBuilder {
         val favorites: Set<String> = emptySet(),
         val order: List<String> = emptyList(),
         val noAudioKeys: Set<String> = emptySet(),
-        val hideNoAudio: Boolean = true
+        val hideNoAudio: Boolean = true,
+        val hiddenGroups: Set<String> = emptySet()
     )
 
     private val qualityTag = Regex("""\(\s*\d{3,4}\s*[pi]\s*\)""", RegexOption.IGNORE_CASE)
@@ -112,6 +119,7 @@ object CatalogBuilder {
                 if (options.hideUnstable && variants.all { it.unstable }) continue
                 if (options.hideDead && options.isDead(key)) continue
                 if (options.hideNoAudio && key in options.noAudioKeys) continue
+                if (group in options.hiddenGroups) continue
             }
 
             val channel = Channel(
