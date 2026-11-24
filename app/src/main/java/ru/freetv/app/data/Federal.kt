@@ -184,7 +184,8 @@ object Federal {
             listOf(
                 "http://31.148.5.241/kanal_16/index.m3u8",
                 "https://vod.tuva.ru/friday/index.m3u8",
-                "http://tv.tuva.ru/friday/index.m3u8"
+                "http://tv.tuva.ru/friday/index.m3u8",
+                "https://stream8.cinerama.uz/1205/tracks-v1a1/mono.m3u8"
             ),
             576, logo(16),
             listOf("Пятница!", "Пятница"),

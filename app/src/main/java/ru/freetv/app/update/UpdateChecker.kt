@@ -174,10 +174,20 @@ object UpdateChecker {
     }
 
     private fun installFromUri(context: Context, uri: Uri) {
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            setDataAndType(uri, "application/vnd.android-package-archive")
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // ACTION_INSTALL_PACKAGE открывает системный установщик напрямую,
+            // минуя диалог «Открыть с помощью» (TeraBox и т.п.).
+            Intent(Intent.ACTION_INSTALL_PACKAGE).apply {
+                setData(uri)
+                putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, true)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+        } else {
+            Intent(Intent.ACTION_VIEW).apply {
+                setDataAndType(uri, "application/vnd.android-package-archive")
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
         }
         context.startActivity(intent)
     }
