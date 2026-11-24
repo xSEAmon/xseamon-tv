@@ -182,9 +182,9 @@ object Federal {
         FederalDef(
             16, "Пятница!",
             listOf(
+                "http://31.148.5.241/kanal_16/index.m3u8",
                 "https://vod.tuva.ru/friday/index.m3u8",
-                "http://tv.tuva.ru/friday/index.m3u8",
-                "http://31.148.5.241/kanal_16/index.m3u8"
+                "http://tv.tuva.ru/friday/index.m3u8"
             ),
             576, logo(16),
             listOf("Пятница!", "Пятница"),
